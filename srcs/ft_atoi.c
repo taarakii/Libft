@@ -1,5 +1,6 @@
 #include	<stddef.h>
 #include	<stdio.h>
+#include	<string.h>
 
 int	ft_is_whitespace(char c)
 {
@@ -66,7 +67,17 @@ int	ft_atoi(const char *str)
 		return (-1);
 	else if (len > 20 && sign == -1)
 		return (1);
-	////("len:%d\n", len);
+
+	//strcmp to see if the value is larger than ULONG_MAX
+	if (strcmp(p, "18446744073709551616") > 0)
+		printf("larger ");
+	else if (strcmp(p, "18446744073709551616") < 0) 
+		printf("smaller ");
+	else
+	{
+		printf("equal ");
+		return (-1);
+	}
 	x = 0;
 	i = 0;
 	while (i < len)
