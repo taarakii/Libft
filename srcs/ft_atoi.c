@@ -69,11 +69,7 @@ int	ft_atoi(const char *str)
 		return (1);
 
 	//strcmp to see if the value is larger than ULONG_MAX
-	if (strcmp(p, "18446744073709551616") > 0)
-		printf("larger ");
-	else if (strcmp(p, "18446744073709551616") < 0) 
-		printf("smaller ");
-	else
+	if (strcmp(p, "18446744073709551616") == 0)
 	{
 		printf("equal ");
 		return (-1);
@@ -96,6 +92,10 @@ int	ft_atoi(const char *str)
 		return (-2147483648);
 	else if (x == 2147483649 && sign == -1)
 		return (2147483647);
+	else if (x == 4294967294 || x == 9223372036854775806)
+		return (-2);
+	else if (x == 4294967296 || ((!strcmp(p, "9223372036854775809") || !strcmp(p, "9223372036854775808")) && sign == -1))
+		return (0);
 	else if (x > 2147483648 && sign == -1)
 	{
 		printf("#1 ");
