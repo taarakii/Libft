@@ -7,6 +7,7 @@ char	*ft_strchr(const char *s, char c)
 	{
 		if (*p == c)
 			return (p);
+			//break;
 		p++;
 	}
 	if (*p == c)
