@@ -19,12 +19,13 @@ size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize
 
 	p1 = (char*)dst;
 	p2 = (char*)src;
+	if (p2 == NULL || p1 == NULL)
+		return (99);
 	len = ft_strlen(p1);
-
 	if (dstsize < len)
 		return (ft_strlen(p2) + dstsize);
 	return_val = len + ft_strlen(p2);
-	while (*p2 && len < dstsize - 1)//dstsize is 1 + len(dst)
+	while (*p2 && len < dstsize - 1)
 	{
 		p1[len] = *p2;
 		p2++;	
