@@ -14,22 +14,24 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	char	*p1;
 	char	*p2;
+	//size_t	len1;
 	size_t	len2;
 	size_t	i;
-	size_t	j;
+	//size_t	j;
 
 	p1 = (char*)haystack;
 	p2 = (char*)needle;
+	//len1 = ft_strlen(p1);
 	len2 = ft_strlen(p2);
 	if (*p2 == 0)
 		return (p1);
-	j = 0;
+	//j = 0;
 	while (*p1 && 0 < len)
 	{
 		if (*p1 == p2[0])
 		{
 			i = 0;
-			while (p1[i] == p2[i] && (j + i) < len)
+			while (p1[i] == p2[i] && i < len)//(j + i) < len)//len1)
 			{
 				if (i + 1 == len2)
 					return (p1);
@@ -37,7 +39,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			}
 		}
 		p1++;
-		j++;
+		//j++;
 		len--;	
 	}	
 	return (NULL);
