@@ -49,6 +49,23 @@ char	*operation_one(char *str, int *flag, int *sign)
 	return (p);
 }
 
+int	operation_two(unsigned long long x, int sign)
+{
+	if (x == 2147483648 && sign == 1)
+		return (-2147483648);
+	else if (x == 2147483649 && sign == -1)
+		return (2147483647);
+	else if (x == 4294967294 || x == 9223372036854775806)
+		return (-2);
+	else if (x == 4294967296)
+		return (0);
+	else if (x > 2147483648 && sign == -1)
+		return (1);
+	else if (x > 2147483647 && sign == 1)
+		return (-1);
+	return ((int)(sign * x));
+}
+
 int	ft_atoi(const char *str)
 {
 	char			*p;
@@ -96,13 +113,18 @@ int	ft_atoi(const char *str)
 		x = (x * 10) + (p[i] - '0');
 		i++;
 	}
+
+	if ((!ft_strcmp(p, "9223372036854775809") || !ft_strcmp(p, "9223372036854775808")) && sign == -1)
+		return (0);
+/*
+	//
 	if (x == 2147483648 && sign == 1)
 		return (-2147483648);
 	else if (x == 2147483649 && sign == -1)
 		return (2147483647);
 	else if (x == 4294967294 || x == 9223372036854775806)
 		return (-2);
-	else if (x == 4294967296 || ((!ft_strcmp(p, "9223372036854775809") || !ft_strcmp(p, "9223372036854775808")) && sign == -1))
+	else if (x == 4294967296)// || ((!ft_strcmp(p, "9223372036854775809") || !ft_strcmp(p, "9223372036854775808")) && sign == -1))
 		return (0);
 	else if (x > 2147483648 && sign == -1)
 		return (1);
@@ -110,7 +132,17 @@ int	ft_atoi(const char *str)
 		return (-1);
 	else
 		return ((int)(sign * x));
+	//
+*/
+	return (operation_two(x, sign));
 }
+
+
+
+
+
+
+
 
 
 
