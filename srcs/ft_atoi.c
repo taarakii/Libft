@@ -25,7 +25,7 @@ char	*operation_one(char *str, int *flag, int *sign)
 	char	*p;
 
 	p = str;
-	while ((*p >= 9 && *p <= 13) || *p == 32)//ft_is_whitespace(*p))
+	while (ft_is_whitespace(*p))
 		p++;
 	if (*p == '+')
 	{
@@ -41,6 +41,8 @@ char	*operation_one(char *str, int *flag, int *sign)
 	return (p);
 }
 
+//@param (value, sign)
+//scrutinize the value of unsigned long long and convert it to an integer
 int	operation_two(unsigned long long x, int sign)
 {
 	if (x == 2147483648 && sign == 1)
@@ -63,19 +65,16 @@ int	ft_atoi(const char *str)
 	char			*p;
 	int			flag;
 	int			sign;
-	//int			len;
 	int			i;
 	unsigned long long	x;
 
 	flag = 0;
 	sign = 1;
-	/* OPERATION ONE */
 	p = operation_one((char*)str, &flag, &sign);
 	if (flag == 1 && !(*p >= '0' && *p <= '9'))
 		return (0);
 	while (*p == '0')
 		p++;
-	//len = ft_strlen_num(p);	
 	if ((ft_strlen_num(p) > 20 && sign == 1) || ft_strcmp(p, "18446744073709551616") == 0)
 		return (-1);
 	else if (ft_strlen_num(p) > 20 && sign == -1)
@@ -86,7 +85,6 @@ int	ft_atoi(const char *str)
 	i = 0;
 	while (i < ft_strlen_num(p))
 		x = (x * 10) + (p[i++] - '0');
-	/* OPERATION TWO */
 	return (operation_two(x, sign));
 }
 
