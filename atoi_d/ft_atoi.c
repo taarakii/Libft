@@ -1,6 +1,5 @@
-#include	<stddef.h>
+#include	"libft.h"
 #include	<stdio.h>
-#include	<string.h>
 
 int	ft_is_whitespace(char c)
 {
@@ -34,7 +33,7 @@ char	*operation_one(char *str, int *flag, int *sign)
 	char	*p;
 
 	p = str;
-	while ((c >= 9 && c <= 13) || c == 32)//ft_is_whitespace(*p))
+	while ((*p >= 9 && *p <= 13) || *p == 32)//ft_is_whitespace(*p))
 		p++;
 	if (*p == '+')
 	{
@@ -90,7 +89,7 @@ int	ft_atoi(const char *str)
 		return (-1);
 	else if (len > 20 && sign == -1)
 		return (1);
-	if (strcmp(p, "18446744073709551616") == 0)
+	if (ft_strcmp(p, "18446744073709551616") == 0)
 		return (-1);
 	x = 0;
 	i = 0;
@@ -105,7 +104,7 @@ int	ft_atoi(const char *str)
 		return (2147483647);
 	else if (x == 4294967294 || x == 9223372036854775806)
 		return (-2);
-	else if (x == 4294967296 || ((!strcmp(p, "9223372036854775809") || !strcmp(p, "9223372036854775808")) && sign == -1))
+	else if (x == 4294967296 || ((!ft_strcmp(p, "9223372036854775809") || !ft_strcmp(p, "9223372036854775808")) && sign == -1))
 		return (0);
 	else if (x > 2147483648 && sign == -1)
 		return (1);
