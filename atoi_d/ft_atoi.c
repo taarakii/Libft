@@ -27,6 +27,29 @@ int	ft_is_zero(char c)
 	return (0);
 }
 
+//@param (str, flag, sign)
+//skip whitespaces, check sign
+char	*operation_one(char *str, int *flag, int *sign)
+{
+	char	*p;
+
+	p = str;
+	while ((c >= 9 && c <= 13) || c == 32)//ft_is_whitespace(*p))
+		p++;
+	if (*p == '+')
+	{
+		*flag = 1;
+		p++;
+	}
+	else if (*p == '-')
+	{
+		*flag = 1;
+		*sign = -1;
+		p++;
+	}
+	return (p);
+}
+
 int	ft_atoi(const char *str)
 {
 	char			*p;
@@ -36,10 +59,12 @@ int	ft_atoi(const char *str)
 	int			i;
 	unsigned long long	x;
 
-	//
-	p = (char*)str;	
+	//@param (str, flag, sign)
+	//skip whitespaces, check sign
 	flag = 0;
 	sign = 1;
+/*
+	p = (char*)str;	
 	while (ft_is_whitespace(*p))
 		p++;
 	if (*p == '+')
@@ -53,6 +78,9 @@ int	ft_atoi(const char *str)
 		sign = -1;
 		p++;
 	}
+*/
+	p = operation_one((char*)str, &flag, &sign);
+	//
 	if (flag == 1 && !(*p >= '0' && *p <= '9'))
 		return (0);
 	while (ft_is_zero(*p))
