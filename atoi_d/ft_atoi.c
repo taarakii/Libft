@@ -85,12 +85,10 @@ int	ft_atoi(const char *str)
 	while (ft_is_zero(*p))
 		p++;
 	len = ft_strlen_num(p);	
-	if (len > 20 && sign == 1)
+	if ((len > 20 && sign == 1) || ft_strcmp(p, "18446744073709551616") == 0)
 		return (-1);
 	else if (len > 20 && sign == -1)
 		return (1);
-	if (ft_strcmp(p, "18446744073709551616") == 0)
-		return (-1);
 	x = 0;
 	i = 0;
 	while (i < len)
