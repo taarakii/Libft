@@ -1,8 +1,6 @@
 #include	<stdlib.h>
-#include	<stdio.h>
+#include	"libft.h"
 
-//@param
-// s: The string from which to create the substring.
 // start: The start index of the subsring in the string 's'
 // len: The maximum length of the substring.
 //@return_val
@@ -19,11 +17,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	p = (char*)malloc(len * sizeof(char));
 	temp = p;
 	if (p == NULL)
-	{
-		printf("Malloc failed to allocate the memory of the size %zu\n", len);
 		return (NULL);
-	}	
-	//printf("Malloc succedd in allocating the memory of the size %zu\n", len);
+	if ((unsigned int)ft_strlen(s) < start)
+		return ("");
 	s += (start) * sizeof(char);
 	i = 0;
 	while (i < len)
