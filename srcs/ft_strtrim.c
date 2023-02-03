@@ -49,28 +49,53 @@ char	*findstr_and_skip(char *new, char *h, char *n)
 	char	*p;
 	char	*temp;
 	int	i;
+	int	flag;
+	int	store;
 
 	p = new;
 	temp = p;
+	flag = 0;
+	store = 0;
 	while (*h)
 	{
-		if (*h == n[0])
+		//when I have while loop right here, I get to remove all patterns
+		// of string from the original.
+		//Somehow, I need to find a way to only remove the patterns
+		// that appear at the beginning and end of the string.
+		//1. use flag, store the num to add to the pointer
+		store = 0;
+		while (*h == n[0])///if (*h == n[0])
 		{
 			i = 0;
 			while (h[i] == n[i])
+			{
 				if (i++ == ft_strlen(n) - 1)
 				{
+					//store += ft_strlen(n);
 					h += ft_strlen(n);		
 					//trimmer(h, n, ft_strlen(n));
+					flag = 1;
 				}
+			}
 		}
+		//if (flag == 1)
+		//	h += store;
 		*p = *h;
+		flag = 0;
 		h++;
 		p++;
 	}
 	*(p + 1) = '\0';
 	return (temp);
 }
+/*
+char	*strstr_and_strnstr()
+{
+
+	return (p);
+}
+*/
+
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
