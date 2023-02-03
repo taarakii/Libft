@@ -58,8 +58,6 @@ char	*findstr_and_skip(char *new, char *h, char *n)
 	store = 0;
 	while (*h)
 	{
-		//when I have while loop right here, I get to remove all patterns
-		// of string from the original.
 		//Somehow, I need to find a way to only remove the patterns
 		// that appear at the beginning and end of the string.
 		//1. use flag, store the num to add to the pointer
