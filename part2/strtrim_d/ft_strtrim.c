@@ -1,15 +1,5 @@
-#include	<stdio.h>
 #include	<stdlib.h>
-#include	<stddef.h>
 #include	"libft.h"
-
-
-
-
-
-
-
-
 
 int	trimmed(char const *h, char c)
 {
@@ -24,7 +14,6 @@ int	trimmed(char const *h, char c)
 	}
 	return (0);
 }
-
 
 int	count_begin(char const *h, char const *n)
 {
@@ -79,29 +68,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len_new = ft_strlen(s1) - i_begin - i_end;
 	new =(char*)malloc(len_new * sizeof(char) + 1);
 	if (new == NULL)
-	{
-		printf("\nAllocation failed.");
 		return (NULL);
-	}
-	printf("\nAllocation succeeds with size %lu.", len_new * sizeof(char));
-	/* */
-	printf("\ni_beg:   %d", i_begin);
-	printf("\ni_end:   %d", i_end);
-	printf("\nlen_new: %d", len_new);
-	printf(" ");
-	/* */
 	i = 0;
 	while (i < len_new)
-	{
-		new[i] = s1[i_begin];
-		i_begin++;
-		i++;
-	}
+		new[i++] = s1[i_begin++];
 	return (new);
 }
-
-
-
-
-
-
