@@ -1,4 +1,5 @@
 #include	<stdio.h>
+#include	<stdlib.h>
 #include	"libft.h"
 
 //@param
@@ -33,8 +34,8 @@ int	count_split(const char *s, int *len_max, char c)
 		{
 			len++;
 		}
-		if (len_max < len)
-			len_max = len;
+		if (*len_max < len)
+			*len_max = len;
 		p++;
 	}
 	return (i_split);
@@ -48,23 +49,32 @@ char	**ft_split(char const *s, char c)
 	int	array_size;
 	int	len_max;
 	int	i;
-	int	j;
+	//int	j;
 
 	p = (char *)s;
+	printf("\np:'%s'", p);
+	printf("\nc:'%c'", c);
 	len_max = 0;
 	array_size = 0;
 	array_size = count_split(s, &len_max, c) + 1;
 
-	new = (char**)malloc((array_size * (len_max + 1)) * sizeof(char) + 1);
+	new = (char**)malloc((array_size * (len_max + 1)) * sizeof(char) + 8);
 	if (new == NULL)
 	{
 		printf("\nAllocation fails with size %d.", (array_size * len_max) + 1);
 		return (NULL);
 	}
 	printf("\nAllocation succeeds with size %d.", (array_size * len_max) + 1);
+	/* */
+	printf("\nlen_max:    %d", len_max);
+	printf("\narray_size: %d", array_size);
 	i = 0;
-	while (i < array_size)
+	printf("\ni: %d", i);
+	if (i < array_size)//while (i < array_size)
 	{
+		/* CHECK */
+		printf("\n#");
+		/*
 		j = 0;
 		while (*p != c)
 		{
@@ -75,7 +85,15 @@ char	**ft_split(char const *s, char c)
 		if (*p == c)
 			p++;
 		new[i][j + 1] = '\0';
+		*/
 		i++;
 	}
-	return (p);
+	else
+	{
+		/* CHECK */
+		printf("\n$");
+	}
+	//null terminate the array
+	new[array_size - 1] = NULL;
+	return (new);
 }
