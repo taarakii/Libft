@@ -49,7 +49,7 @@ char	**ft_split(char const *s, char c)
 	int	array_size;
 	int	len_max;
 	int	i;
-	//int	j;
+	int	j;
 
 	p = (char *)s;
 	printf("\np:'%s'", p);
@@ -74,17 +74,22 @@ char	**ft_split(char const *s, char c)
 	{
 		/* CHECK */
 		printf("\n#");
-		/*
 		j = 0;
-		while (*p != c)
+		while (*p && j < len_max)// != c)
 		{
+			if (*p == c)
+				break;
 			new[i][j] = *p;
 			j++;
 			p++;
 		}
-		if (*p == c)
-			p++;
-		new[i][j + 1] = '\0';
+		// I am here @ Feb5 0535PM
+		//p++;
+		if (j > len_max)
+			new[i][len_max] = '\0';
+		else
+			new[i][j] = '\0';
+		/*
 		*/
 		i++;
 	}
