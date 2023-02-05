@@ -3,22 +3,6 @@
 #include	<stddef.h>
 #include	"libft.h"
 
-//@function_name
-// ft_strtrim
-//@param
-// s1: The string to be trimmed.
-// set: The reference set of characters to trim.
-//@return_val
-// The trimmed string.
-// NULL if the allocation fails.
-//@description
-// Allocates (with malloc(3)) and returns a copy of 's1'
-// with the characters specified in 'set' removed from 
-// the beginning and the end of the string.
-
-//I need a function for counting the number of 
-// occurence of a set of characters in a string
-// I can see strstr as a reference.
 int	strstr_count(char *h, char *n)
 {
 	size_t	num;
@@ -56,12 +40,16 @@ char	*findstr_and_skip(char *new, char *h, char *n)
 	temp = p;
 	flag = 0;
 	store = 0;
-	while (*h)
+	// here @ 0205 12:30
+	while (*h && flag == 1)	
+	//while (*h && (*h != n[0] && flag == 0))//while (*h)
 	{
 		//Somehow, I need to find a way to only remove the patterns
 		// that appear at the beginning and end of the string.
 		//1. use flag, store the num to add to the pointer
 		store = 0;
+		//this right here will keep going until the first character of 
+		//n does not equal the characture of h at a certain point.
 		while (*h == n[0])///if (*h == n[0])
 		{
 			i = 0;
@@ -69,15 +57,11 @@ char	*findstr_and_skip(char *new, char *h, char *n)
 			{
 				if (i++ == ft_strlen(n) - 1)
 				{
-					//store += ft_strlen(n);
 					h += ft_strlen(n);		
-					//trimmer(h, n, ft_strlen(n));
 					flag = 1;
 				}
 			}
 		}
-		//if (flag == 1)
-		//	h += store;
 		*p = *h;
 		flag = 0;
 		h++;
@@ -86,15 +70,106 @@ char	*findstr_and_skip(char *new, char *h, char *n)
 	*(p + 1) = '\0';
 	return (temp);
 }
-/*
-char	*strstr_and_strnstr()
-{
 
+int	count_begin(char *h, char *n)
+{
+	int	count_begin;
+	int	i;
+	int	len2;
+
+	len2 = ft_strlen(n);
+	count_begin = 0;
+	while (*h == n[0])
+	{
+		i = 0;
+		while (h[i] == n[i])
+		{
+			if (i++ == len2 - 1)
+			{
+				h += len2;		
+				count_begin++;
+			}
+		}
+	}
+	return (count_begin);
+}
+
+int	count_end(char *h, char *n)
+{
+	int	count_end;
+	int	i;
+	int	len2;
+	char	*p;
+
+	len2 = ft_strlen(n);
+	p = &h[len2 - 1];
+	count_end = 0;
+	while (*p == n[len2 - 1])
+	{
+		i = len2 - 1;
+		while (p[i] == n[i])
+		{
+			if (i-- == len2 - 1)
+			{
+				p -= len2;
+				count_end++;
+			}
+		}
+	}
+	return (count_end);
+}
+
+char	*skipper(char *h, char *p, int	count_begin, int count_end)
+{
+	char	*new;
+	int	len1;
+	int	len2;
+	int	len_new;
+	int	i;
+	int	start_idx;
+	//int	end_idx;
+
+	len1 = ft_strlen(h);
+	len2 = ft_strlen(p);
+	start_idx = count_begin * len2;
+	//end_idx = len1 - (count_end * len2) - 1;
+	len_new = len1 - count_begin - count_end;
+	new = (char*)malloc((len_new) * sizeof(char) + 1);
+	if (new == NULL)
+	{
+		printf("\nAllocation fails.");
+		return (NULL);
+	}
+	i = 0;
+	while (i < len_new)
+	{
+		new[i] = h[start_idx];
+		start_idx++;
+		i++;
+	}
+	return (new);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char *p;
+	int	count_b;
+	int	count_e;	
+	
+	count_b = 0;
+	count_e = 0;
+	count_b = count_begin((char*)s1, (char*)set);
+	count_e = count_end((char*)s1, (char*)set);
+	p = skipper((char*)s1, (char*)set, count_b, count_e);
+	if (p == NULL)
+		printf("\nis NULL");
+	else
+		printf("\nis not NULL");
 	return (p);
 }
-*/
 
 
+/*
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*p;
@@ -125,7 +200,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	printf("\np :%s ", p);
 	return (p);
 }
-
+*/
 
 
 
