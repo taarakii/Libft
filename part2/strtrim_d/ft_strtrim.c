@@ -87,7 +87,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	while (i < len_new)
 	{
-		*new = s1[i_begin];
+		new[i] = s1[i_begin];
 		i_begin++;
 		i++;
 	}
