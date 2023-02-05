@@ -58,7 +58,7 @@ int	count_end(char const *h, char const *n)
 			i_end++;	
 		else
 			break ;
-		p++;
+		p--;
 	}
 	return (i_end);
 }
@@ -84,6 +84,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	}
 	printf("\nAllocation succeeds with size %lu.", len_new * sizeof(char));
+	/* */
+	printf("\ni_beg:   %d", i_begin);
+	printf("\ni_end:   %d", i_end);
+	printf("\nlen_new: %d", len_new);
+	printf(" ");
+	/* */
 	i = 0;
 	while (i < len_new)
 	{
