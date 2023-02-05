@@ -11,45 +11,51 @@
 
 
 
-int	trimmed(char const h, char c)
+int	trimmed(char const *h, char c)
 {
-	while (*(char*)h)
+	char 	*p;
+
+	p = (char *)h;
+	while (*p)
 	{
-		if (*(char*)h == c)
+		if (*p == c)
 			return (1);
-		h++
+		p++;
 	}
 	return (0);
 }
 
 
-int	count_begin(char const h, char const n)
+int	count_begin(char const *h, char const *n)
 {
+	char 	*p;
 	int	i_begin;
 
+	p = (char *)h;
 	i_begin = 0;
-	while (*(char*)h)
+	while (*p)
 	{
-		if (trimmed(n, *(char*)h)
-			count_begin++;	
+		if (trimmed(n, *p))
+			i_begin++;	
 		else
 			break ;
-		h++;
+		p++;
 	}
 	return (i_begin);
 }
 
-int	count_end(char const h, char const n)
+int	count_end(char const *h, char const *n)
 {
-	char	*p;
+	char 	*p;
 	int	i_end;
 
-	p = &(char*)h[ft_strlen(h) - 1];
+	p = (char *)h;
+	p = &p[ft_strlen(p) - 1];
 	i_end = 0;
 	while (*p)
 	{
-		if (trimmed(n, *p)
-			count_end++;	
+		if (trimmed(n, *p))
+			i_end++;	
 		else
 			break ;
 		p++;
@@ -77,11 +83,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 		printf("\nAllocation failed.");
 		return (NULL);
 	}
-	printf("\nAllocation succeeds with size %i.", len_new * sizeof(char));
+	printf("\nAllocation succeeds with size %lu.", len_new * sizeof(char));
 	i = 0;
 	while (i < len_new)
 	{
-		*new = h(i_begin);
+		*new = s1[i_begin];
 		i_begin++;
 		i++;
 	}
