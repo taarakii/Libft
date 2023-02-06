@@ -99,6 +99,7 @@ char	**ft_split(char const *s, char c)
 		printf("\n$");
 	}
 	//null terminate the array
-	new[array_size - 1] = NULL;
+	//new[array_size - 1] = NULL;
+	new[array_size + 1] = NULL;
 	return (new);
 }

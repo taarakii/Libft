@@ -2,6 +2,10 @@
 
 char	**ft_split(char const *s, char c);
 
+// The problem is actually when I pass the result from ft_split.c
+// Splitting strings is a success, but when I pass the arguments
+// There' is non returned. (Feb6 0358PM)
+
 int	main(void)
 {
 	char	s[] = "hello,world,42,tokyo";

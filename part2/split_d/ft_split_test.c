@@ -128,7 +128,8 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	//null terminate the array
-	new[array_size] = NULL;//array_size is the number of elements
+	//new[array_size] = NULL;//array_size is the number of elements
+	new[array_size + 1] = NULL;
 	printf("\n===");
 	while (*new)
 	{
