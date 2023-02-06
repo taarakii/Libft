@@ -98,7 +98,7 @@ char	**ft_split(char const *s, char c)
 		j = 0;
 		while (*p && j < len_max + 1)
 		{
-			printf("\nj:%d p:%c c:%c", j, *p, c);
+			printf("\nj:%d p:%c", j, *p);
 			if (*p == c)
 			{
 				printf("\n'p == c'");
@@ -107,12 +107,12 @@ char	**ft_split(char const *s, char c)
 			}
 			//new[0][0] = *p;// new[i][j] = *p; 
 			new[i][j] = *p; 
-			printf("\nnew[%d][%d]:%c", i, j, new[i][j]);
+			printf(" new[%d][%d]:%c", i, j, new[i][j]);
 			p++;
 			j++;
 		}
 		new[i][j] = '\0';
-
+		put_str(new[i]);
 		/*
 		while (*p && j < len_max)// != c)
 		{
