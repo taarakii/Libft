@@ -44,7 +44,7 @@ int	count_split(const char *s, int *len_max, char c)
 char	**secure_mem(int array_size, int len_max)
 {
 	char	**mem;
-	char	*ary[array_size];
+	char	*ary[array_size + 1];
 	int	i;
 	
 	i = 0;
@@ -71,7 +71,7 @@ char	**ft_split(char const *s, char c)
 	printf("\nc:'%c'", c);
 	len_max = 0;
 	array_size = 0;
-	array_size = count_split(s, &len_max, c) + 1;
+	array_size = count_split(s, &len_max, c) + 1;//array_size = number of splits + 1
 
 	// need CHECK //
 	// the way to allocate a new memory as an array of strings
@@ -112,7 +112,8 @@ char	**ft_split(char const *s, char c)
 			j++;
 		}
 		new[i][j] = '\0';
-		put_str(new[i]);
+		// I am here @ Feb6 1235PM 
+		printf("\nnew[%d]:%s", i, new[i]);
 		/*
 		while (*p && j < len_max)// != c)
 		{
@@ -124,7 +125,6 @@ char	**ft_split(char const *s, char c)
 			j++;
 			p++;
 		}
-		// I am here @ Feb5 0535PM
 		//p++;
 		if (j > len_max)
 			new[i][len_max] = '\0';
