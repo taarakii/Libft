@@ -1,6 +1,7 @@
 #include	<stdio.h>
+#include	<unistd.h>
 #include	<stdlib.h>
-#include	"libft.h"
+//#include	"libft.h"
 
 //@param
 // s: The string to be split.
@@ -13,6 +14,7 @@
 // of strings obtained by splitting 's' using the
 // character 'c' as a delimiter. The array must end
 // with a NULL pointer.
+void	put_str(char *s);
 
 int	count_split(const char *s, int *len_max, char c)
 {
@@ -47,6 +49,8 @@ char	**secure_mem(int array_size, int len_max)
 	char	*ary[array_size + 1];
 	int	i;
 	
+	// I may have to allocate memory for the whole thing first.
+	mem = (char**)malloc(((len_max + 1) * array_size) * sizeof(char) + 8);
 	i = 0;
 	while (i < array_size + 1)
 	{
@@ -54,6 +58,12 @@ char	**secure_mem(int array_size, int len_max)
 		i++;
 	}
 	mem = ary;
+	i = 0;
+	while (i < array_size + 1)
+	{
+		free(ary[i]);
+		i++;
+	}
 	return (mem);
 }
 
@@ -105,7 +115,6 @@ char	**ft_split(char const *s, char c)
 				p++;
 				break;
 			}
-			//new[0][0] = *p;// new[i][j] = *p; 
 			new[i][j] = *p; 
 			printf(" new[%d][%d]:%c", i, j, new[i][j]);
 			p++;
@@ -114,31 +123,31 @@ char	**ft_split(char const *s, char c)
 		new[i][j] = '\0';
 		// I am here @ Feb6 1235PM 
 		printf("\nj: %d", j);
-		printf("\nnew[%d]:%s ", i, new[i]);
-		/*
-		while (*p && j < len_max)// != c)
-		{
-			if (*p == c)
-				break;
-			new[i][j] = *p;
-			// CHECK //
-			printf("i:%d j:%d p:'%c'", i, j, *p);
-			j++;
-			p++;
-		}
-		//p++;
-		if (j > len_max)
-			new[i][len_max] = '\0';
-		else
-			new[i][j] = '\0';
-		*/
+		printf("\nnew[%d]:%s", i, new[i]);
+		//
 		i++;
 	}
 	//null terminate the array
-	new[array_size] = NULL;//new[array_size - 1] = NULL;
+	new[array_size] = NULL;//array_size is the number of elements
 	printf("\n===");
 	while (*new)
-		printf("\n%s", *new++);
+	{
+		printf("\n");
+		//put_str(*new++);
+		printf("%s", *new++);
+	}
+	if (*new == NULL)
+		printf("\n'(null)'");
 	printf("\n===");
+	//
 	return (new);//return (new);
+}
+
+void	put_str(char *s)
+{
+	while (*s)
+		write(1, s++, 1);
+	if (*s == '\0')	
+		printf("\\0");
+	return ;
 }
