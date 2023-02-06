@@ -113,7 +113,8 @@ char	**ft_split(char const *s, char c)
 		}
 		new[i][j] = '\0';
 		// I am here @ Feb6 1235PM 
-		printf("\nnew[%d]:%s", i, new[i]);
+		printf("\nj: %d", j);
+		printf("\nnew[%d]:%s ", i, new[i]);
 		/*
 		while (*p && j < len_max)// != c)
 		{
@@ -134,6 +135,10 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	//null terminate the array
-	new[array_size - 1] = NULL;
-	return (NULL);//return (new);
+	new[array_size] = NULL;//new[array_size - 1] = NULL;
+	printf("\n===");
+	while (*new)
+		printf("\n%s", *new++);
+	printf("\n===");
+	return (new);//return (new);
 }
