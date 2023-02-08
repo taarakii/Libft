@@ -39,7 +39,7 @@ void	print_strings(char **s_ary)
 	{
 		printf("j:%d\n", j++);
 		if (*s_ary == NULL)
-			return ;
+			break ;
 		//write(1, "\n", 1);
 		printf("#\n");
 		print_str(*s_ary);	
