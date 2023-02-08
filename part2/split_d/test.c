@@ -17,7 +17,7 @@ int	main(void)
 	printf("\nprinting the variable...");
 	i = 0;
 	while (*new)
-		printf("\ni:%d '%s'", i, *new++);
+		printf("\ni:%d '%s'", i++, *new++);
 	if (*new == NULL)
 		printf("\nis null.");
 	return (0);

@@ -1,7 +1,7 @@
 #include	<stdio.h>
 #include	<unistd.h>
 #include	<stdlib.h>
-#include	"libft.h"
+//#include	"libft.h"
 
 //@param
 // s: The string to be split.
@@ -46,17 +46,19 @@ int	count_split(const char *s, int *len_max, char c)
 char	**secure_mem(int array_size, int len_max)
 {
 	char	**mem;
-	char	*ary[array_size + 1];
+	//char	*ary[array_size + 1];
 	int	i;
 	
 	// I may have to allocate memory for the whole thing first.
-	mem = (char**)malloc(((len_max + 1) * array_size) * sizeof(char) + 8);
+	//mem = (char**)malloc(((len_max + 1) * array_size) * sizeof(char) + 8);
+	mem = (char**)malloc(array_size * sizeof(char*) + 1);
 	i = 0;
-	while (i < array_size + 1)
+	while (i < array_size)// + 1)
 	{
-		ary[i] = (char*)malloc((len_max + 1) * sizeof(char));
+		mem[i] = (char*)malloc((len_max + 1));// * sizeof(char));
 		i++;
 	}
+	/* not necessary
 	mem = ary;
 	i = 0;
 	while (i < array_size + 1)
@@ -64,12 +66,14 @@ char	**secure_mem(int array_size, int len_max)
 		free(ary[i]);
 		i++;
 	}
+	*/
 	return (mem);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**new;
+	char	**temp;
 	char	*p;
 	int	array_size;
 	int	len_max;
@@ -77,29 +81,21 @@ char	**ft_split(char const *s, char c)
 	int	j;
 
 	p = (char *)s;
-	printf("\np:'%s'", p);
-	printf("\nc:'%c'", c);
 	len_max = 0;
 	array_size = 0;
 	array_size = count_split(s, &len_max, c) + 1;//array_size = number of splits + 1
 
-	// need CHECK //
-	// the way to allocate a new memory as an array of strings
-	//char	ary[array_size];
-	//for (int i = 0; i < array_size; i++)
-	//	ary[i] = (char*)malloc((len_max + 1) * sizeof(char) + 8);
+	// allocate memory
 	new = secure_mem(array_size, len_max);
-	//new = (char**)malloc((array_size * (len_max + 1)) * sizeof(char) + 8);
 	if (new == NULL)
 	{
-		printf("\nAllocation fails with size %d.", (array_size * len_max) + 1);
+		printf("\nAllocation fails.");
 		return (NULL);
 	}
-	printf("\nAllocation succeeds with size %d.", (array_size * len_max) + 1);
-	/* */
+	printf("\nAllocation succeeds.");
 	i = 0;
-	//printf("\nlen_max:    %d", len_max);
-	//printf("\narray_size: %d", array_size);
+	printf("\nlen_max:    %d", len_max);
+	printf("\narray_size: %d", array_size);
 	//printf("\ni: %d", i);
 	while (i < array_size)
 	{
@@ -122,14 +118,16 @@ char	**ft_split(char const *s, char c)
 		}
 		new[i][j] = '\0';
 		// I am here @ Feb6 1235PM 
-		printf("\nj: %d", j);
+		printf("\nsize: %d", j);
 		printf("\nnew[%d]:%s", i, new[i]);
 		//
 		i++;
 	}
 	//null terminate the array
 	new[array_size] = NULL;//array_size is the number of elements
+	//new[array_size + 1] = NULL; <- this here should be incorrect (Feb8)
 	printf("\n===");
+	temp = new;
 	while (*new)
 	{
 		printf("\n");
@@ -140,7 +138,7 @@ char	**ft_split(char const *s, char c)
 		printf("\n'(null)'");
 	printf("\n===");
 	//
-	return (new);//return (new);
+	return (temp);//return (new);
 }
 
 void	put_str(char *s)

@@ -33,10 +33,7 @@ char	**test_split2(void)
 		for (j = 0; j < len_max; j++)
 			new[i][j] = 'c';
 		new[i][j] = '\0';
-		//new[i][j] = 'B';
 	}
-	new[1][0] = 'A';
-	//new[array_size] = NULL;
-	new[4] = NULL;
+	new[array_size] = NULL;
 	return (new);
 }
