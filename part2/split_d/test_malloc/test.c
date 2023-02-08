@@ -1,6 +1,5 @@
 #include	<stdio.h>
 #include	<stdlib.h>
-#include	<unistd.h>
 
 char	*test_split(void);
 char	**test_split2(void);
@@ -20,10 +19,11 @@ void	print_str(char *s)
 	// I am here @ Feb 5:00PM
 	printf("*s:%c\n", *s); //segmentation fault occurs here.
 
+	//printf("before while\n");
+
 	while (s != NULL && *s)
 	{
 		printf("%d:%c\n", i++, *s++);
-		//write(1, *s++, 1);
 	}
 	return ;
 }
@@ -31,20 +31,25 @@ void	print_str(char *s)
 //print strings untill the pointer is NULL
 void	print_strings(char **s_ary)
 {
-	int	j;
+	int	i;
 
 	printf("print_strings\n");
-	j = 0;
-	while (*s_ary)
+	i = 0;
+	while (s_ary[i])//while (*s_ary)
 	{
-		printf("j:%d\n", j++);
-		if (*s_ary == NULL)
+		printf("#####\n");
+		printf("i:%d\n", i);
+		if (s_ary[i] == NULL)
 			break ;
-		//write(1, "\n", 1);
-		printf("#\n");
-		print_str(*s_ary);	
-		s_ary++;
+		else
+		{
+			printf("%s\n", s_ary[i]);
+			print_str(s_ary[i]);	
+		}
+		i++;//s_ary++;
 	}
+	if (s_ary[i] == NULL)
+		printf("s_art is null when i = %d\n", i);
 	return ;
 }
 
@@ -57,6 +62,6 @@ int	main(void)
 	//for (int i = 0; i < 4; i++)
 	//	printf("%s\n", new[i]);
 	print_strings(new);
-	free(new);
+	//free(new);
 	return (0);
 }
