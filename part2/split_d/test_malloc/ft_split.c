@@ -24,7 +24,8 @@ char	**test_split2(void)
 	array_size = 4;
 	len_max = 5;
 
-	new = (char**)malloc((len_max + 1) * array_size * sizeof(char) + 1);
+	//new = (char**)malloc((len_max + 1) * array_size * sizeof(char) + 1);
+	new = (char**)malloc(array_size * sizeof(char*) + 1);
 	for (int i = 0; i < array_size; i++)
 		new[i] = (char*)malloc(len_max + 1);
 	for (int i = 0; i < array_size; i++)
