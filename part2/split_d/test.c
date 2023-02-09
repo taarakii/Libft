@@ -8,8 +8,9 @@ char	**ft_split(char const *s, char c);
 
 int	main(void)
 {
-	char	s[] = "hello,world,42,tokyo";
-        //char	*s[] = {"hello","world","42","tokyo", NULL};
+	//char	s[] = "hello,world,42,tokyo";
+	//char	s[] = ",,,hello,,,world,,,42,,,tokyo,,,,";
+	char	s[] = "";
 	char	**new;
 	int	i;
 
