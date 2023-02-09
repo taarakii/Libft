@@ -70,22 +70,12 @@ char	**ft_split(char const *s, char c)
 			continue ;
 		}
 		j = 0;
-		while (*s != c && *s && j < len_max + 1)//*s && j < len_max + 1)
-		{
-//			if (*s == c)
-//			{
-//				s++;
-//				break ;
-//			}
+		while (*s != c && *s && j < len_max + 1)
 			new[k][j++] = *s++; 
-			//s++;
-			//j++;
-		}
 		if (*s == c)
 			s++;
-		new[k][j] = '\0';
+		new[k++][j] = '\0';
 		i++;
-		k++;
 	}
 	while (k <= array_size)
 		new[k++] = NULL;
