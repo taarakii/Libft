@@ -51,36 +51,34 @@ char	**secure_mem(int array_size, int len_max)
 char	**ft_split(char const *s, char c)
 {
 	char	**new;
-	char	*p;
 	int	array_size;
 	int	len_max;
 	int	i;
 	int	j;
 	int	k;
 
-	p = (char *)s;
 	array_size = count_split(s, &len_max, c) + 1;
 	new = secure_mem(array_size, len_max);
 	i = 0;
 	k = 0;
 	while (i < array_size)
 	{
-		if (*p == c || *p == '\0')
+		if (*s == c || *s == '\0')
 		{
 			i++;
-			p++;
+			s++;
 			continue ;
 		}
 		j = 0;
-		while (*p && j < len_max + 1)
+		while (*s && j < len_max + 1)
 		{
-			if (*p == c)
+			if (*s == c)
 			{
-				p++;
+				s++;
 				break ;
 			}
-			new[k][j] = *p; 
-			p++;
+			new[k][j] = *s; 
+			s++;
 			j++;
 		}
 		new[k][j] = '\0';
