@@ -1,7 +1,9 @@
-#include	<stdio.h>
-#include	<unistd.h>
 #include	<stdlib.h>
 #include	"libft.h"
+
+char	**ft_split(char const *s, char c);
+int	count_split(const char *s, int *len_max, char c);
+char	**secure_mem(int array_size, int len_max);
 
 int	count_split(const char *s, int *len_max, char c)
 {
@@ -10,6 +12,7 @@ int	count_split(const char *s, int *len_max, char c)
 	int	len;
 
 	p = (char *)s;
+	*len_max = 0;
 	len = 0;
 	i_split = 0;
 	while (*p)
@@ -48,7 +51,6 @@ char	**secure_mem(int array_size, int len_max)
 char	**ft_split(char const *s, char c)
 {
 	char	**new;
-	char	**temp;
 	char	*p;
 	int	array_size;
 	int	len_max;
@@ -57,12 +59,8 @@ char	**ft_split(char const *s, char c)
 	int	k;
 
 	p = (char *)s;
-	len_max = 0;
-	array_size = 0;
 	array_size = count_split(s, &len_max, c) + 1;
-
 	new = secure_mem(array_size, len_max);
-	temp = new;
 	i = 0;
 	k = 0;
 	while (i < array_size)
@@ -76,15 +74,12 @@ char	**ft_split(char const *s, char c)
 		j = 0;
 		while (*p && j < len_max + 1)
 		{
-			printf("\nj:%d p:%c", j, *p);
 			if (*p == c)
 			{
-				printf("\n'p == c'");
 				p++;
 				break ;
 			}
 			new[k][j] = *p; 
-			printf(" new[%d][%d]:%c", k, j, new[k][j]);
 			p++;
 			j++;
 		}
@@ -94,5 +89,5 @@ char	**ft_split(char const *s, char c)
 	}
 	while (k <= array_size)
 		new[k++] = NULL;
-	return (temp);
+	return (new);
 }
