@@ -9,10 +9,6 @@ int	main(void)
 	p = ft_itoa(111);
 	printf("p:%s\n", p);
 
-	//printf("%s\n", ft_itoa(8));
-	//printf("%s\n", ft_itoa(188));
-
-
 //	/* 1 */ printf("%s\n", ft_itoa(0));
 //	/* 2 */ printf("%s\n", ft_itoa(-0));
 //	/* 3 */ printf("%s\n", ft_itoa(+0));
