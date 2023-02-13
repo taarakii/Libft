@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:31:49 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/13 16:17:04 by taaraki          ###   ########.fr       */
+/*   Updated: 2022/12/05 23:32:24 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
 //a function that displays a string
-void	print_string_fd(const char *s, int fd)
+void	print_string(const char *s)
 {
 	while (*s)
-		write(fd, s++, 1);
+		write(1, s++, 1);
 }
 
 //a function that returns the number of digits of an integer
@@ -42,16 +42,16 @@ int	check_negative(int n)
 }
 
 //a function that handles exceptions
-void	check_ex(int nb, int fd)
+void	check_ex(int nb)
 {
 	if (nb == 0)
-		write(fd, "0", 1);
+		write(1, "0", 1);
 	else
-		write(fd, "-2147483648", 11);
+		write(1, "-2147483648\n", 11);
 }
 
 //a function that converts integer to a string (an array of chars)
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr(int nb)
 {
 	int		len;
 	int		i;
@@ -59,13 +59,13 @@ void	ft_putnbr_fd(int nb, int fd)
 
 	if (nb == 0 || nb == -2147483648)
 	{
-		check_ex(nb, fd);
+		check_ex(nb);
 		return ;
 	}
 	else if (check_negative(nb))
 	{
 		nb = (-1) * nb;
-		write(fd, "-", 1);
+		write(1, "-", 1);
 	}
 	len = int_len(nb);
 	i = 0;
@@ -76,5 +76,5 @@ void	ft_putnbr_fd(int nb, int fd)
 		i++;
 	}
 	str[len] = '\0';
-	print_string_fd(str, fd);
+	print_string(str);
 }
