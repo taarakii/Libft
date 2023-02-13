@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:34:49 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/13 17:16:27 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/13 17:20:10 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ void	*ft_calloc(size_t count, size_t size)
 	char	*p;
 	size_t	i;
 
-	// find an overflow
-	
 	if (!(count == 0 || size == 0))
+	{
 		if (count * size < count || count * size < size)
 			return (NULL);
-
+	}
 	p = (char *)malloc(count * size);
 	if (p == NULL)
 		return (NULL);
