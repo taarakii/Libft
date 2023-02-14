@@ -6,11 +6,13 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:30 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 13:06:01 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 13:23:14 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
+
+int	handle_exc(char *s, int sign, int len);
 
 int	ft_is_whitespace(char c)
 {
@@ -87,15 +89,39 @@ int	ft_atoi(const char *str)
 		return (0);
 	while (*p == '0')
 		p++;
-	if ((ft_strlen_num(p) > 20 && sign == 1) || ft_strcmp(p, "18446744073709551616") == 0)
-		return (-1);
-	else if (ft_strlen_num(p) > 20 && sign == -1)
-		return (1);
-	if ((!ft_strcmp(p, "9223372036854775809") || !ft_strcmp(p, "9223372036854775808")) && sign == -1)
-		return (0);
+//
+	if (handle_exc(p, sign, ft_strlen_num(p)) != 2)
+		return (handle_exc(p, sign, ft_strlen_num(p)));
+//
 	x = 0;
 	i = 0;
 	while (i < ft_strlen_num(p))
 		x = (x * 10) + (p[i++] - '0');
 	return (operation_two(x, sign));
 }
+
+int	handle_exc(char *s, int sign, int len)
+{
+	if ((len > 20 && sign == 1) || ft_strcmp(s, "18446744073709551616") == 0)
+		return (-1);
+	else if (len > 20 && sign == -1)
+		return (1);
+	if (sign == -1)
+	{
+		if (!ft_strcmp(s, "9223372036854775809"))
+			return (0);
+		else if  (!ft_strcmp(s, "9223372036854775808"))
+			return (0);
+	}
+	return (2);	
+}
+
+//
+/*
+	if ((ft_strlen_num(p) > 20 && sign == 1) || ft_strcmp(p, "18446744073709551616") == 0)
+		return (-1);
+	else if (ft_strlen_num(p) > 20 && sign == -1)
+		return (1);
+	if ((!ft_strcmp(p, "9223372036854775809") || !ft_strcmp(p, "9223372036854775808")) && sign == -1)
+		return (0);
+*/
