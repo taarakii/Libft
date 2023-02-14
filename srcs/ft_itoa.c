@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/14 15:22:31 by taaraki           #+#    #+#             */
+/*   Updated: 2023/02/14 15:24:07 by taaraki          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include	<stdlib.h>
 #include	"libft.h"
 
@@ -16,13 +28,12 @@ int	int_len(int n)
 	return (i);
 }
 
-
 char	*ft_itoa(int n)
 {
 	char	*p;
-	int	neg_flag;
-	int	len;
-	int	i;
+	int		neg_flag;
+	int		len;
+	int		i;
 
 	neg_flag = 0;
 	if (n == -2147483648)
@@ -32,8 +43,8 @@ char	*ft_itoa(int n)
 		n = -n;
 		neg_flag = 1;
 	}
-	len =  int_len(n);
-	p = (char*)malloc((len + neg_flag + 1) + sizeof(char));
+	len = int_len(n);
+	p = (char *)malloc((len + neg_flag + 1) + sizeof(char));
 	if (neg_flag == 1)
 		*p = '-';
 	i = 0;

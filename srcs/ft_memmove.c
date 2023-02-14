@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:51 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:52:52 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:26:16 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len > 0)
 		{
-			*(char*)(dst + len - 1) = *(char*)(src + len - 1);
+			*(char *)(dst + len - 1) = *(char *)(src + len - 1);
 			len--;
 		}
 	}
@@ -29,7 +29,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len > 0)
 		{
-			*(char*)dst++ = *(char*)src++;
+			*(char *)dst++ = *(char *)src++;
 			len--;
 		}
 	}

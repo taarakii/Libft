@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:30 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:19:57 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:21:47 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,17 @@ int	handle_exc(char *s, int sign, int len)
 			return (-1);
 		else if (sign == -1)
 			return (1);
-
 	}
 	if (sign == -1)
 	{
 		if (ft_strcmp(s, "9223372036854775809") == 0)
 			return (0);
-		else if  (ft_strcmp(s, "9223372036854775808") == 0)
+		else if (ft_strcmp(s, "9223372036854775808") == 0)
 			return (0);
 	}
 	if (ft_strcmp(s, "18446744073709551616") == 0)
 		return (-1);
-	return (2);	
+	return (2);
 }
 
 int	ft_atoi(const char *str)

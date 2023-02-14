@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:54:01 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:54:02 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:36:30 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	len2;
 	size_t	i;
 
-	p1 = (char*)haystack;
-	p2 = (char*)needle;
+	p1 = (char *)haystack;
+	p2 = (char *)needle;
 	len2 = ft_strlen(p2);
 	if (*p2 == 0)
 		return (p1);
@@ -49,7 +49,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 					return (p1);
 		}
 		p1++;
-		len--;	
+		len--;
 	}	
 	return (NULL);
 }
