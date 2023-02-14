@@ -6,21 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:30 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 13:23:14 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:18:51 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
-
-int	handle_exc(char *s, int sign, int len);
-
-int	ft_is_whitespace(char c)
-{
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	else
-		return (0);
-}
 
 int	ft_strlen_num(char *s)
 {
@@ -39,7 +29,7 @@ char	*operation_one(char *str, int *flag, int *sign)
 	char	*p;
 
 	p = str;
-	while (ft_is_whitespace(*p))
+	while ((*p >= 9 && *p <= 13) || *p == 32)
 		p++;
 	if (*p == '+')
 	{
@@ -57,7 +47,7 @@ char	*operation_one(char *str, int *flag, int *sign)
 
 //@param (value, sign)
 //scrutinize the value of unsigned long long and convert it to an integer
-int	operation_two(unsigned long long x, int sign)
+int	operation_two(size_t x, int sign)
 {
 	if (x == 2147483648 && sign == 1)
 		return (-2147483648);
@@ -89,10 +79,8 @@ int	ft_atoi(const char *str)
 		return (0);
 	while (*p == '0')
 		p++;
-//
 	if (handle_exc(p, sign, ft_strlen_num(p)) != 2)
 		return (handle_exc(p, sign, ft_strlen_num(p)));
-//
 	x = 0;
 	i = 0;
 	while (i < ft_strlen_num(p))
@@ -102,26 +90,22 @@ int	ft_atoi(const char *str)
 
 int	handle_exc(char *s, int sign, int len)
 {
-	if ((len > 20 && sign == 1) || ft_strcmp(s, "18446744073709551616") == 0)
-		return (-1);
-	else if (len > 20 && sign == -1)
-		return (1);
+	if (len > 20)
+	{
+		if (sign == 1)
+			return (-1);
+		else if (sign == -1)
+			return (1);
+
+	}
 	if (sign == -1)
 	{
-		if (!ft_strcmp(s, "9223372036854775809"))
+		if (ft_strcmp(s, "9223372036854775809") == 0)
 			return (0);
-		else if  (!ft_strcmp(s, "9223372036854775808"))
+		else if  (ft_strcmp(s, "9223372036854775808") == 0)
 			return (0);
 	}
+	if (ft_strcmp(s, "18446744073709551616") == 0)
+		return (-1);
 	return (2);	
 }
-
-//
-/*
-	if ((ft_strlen_num(p) > 20 && sign == 1) || ft_strcmp(p, "18446744073709551616") == 0)
-		return (-1);
-	else if (ft_strlen_num(p) > 20 && sign == -1)
-		return (1);
-	if ((!ft_strcmp(p, "9223372036854775809") || !ft_strcmp(p, "9223372036854775808")) && sign == -1)
-		return (0);
-*/
