@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:30 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:18:51 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:19:57 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,28 @@ int	operation_two(size_t x, int sign)
 	return ((int)(sign * x));
 }
 
+int	handle_exc(char *s, int sign, int len)
+{
+	if (len > 20)
+	{
+		if (sign == 1)
+			return (-1);
+		else if (sign == -1)
+			return (1);
+
+	}
+	if (sign == -1)
+	{
+		if (ft_strcmp(s, "9223372036854775809") == 0)
+			return (0);
+		else if  (ft_strcmp(s, "9223372036854775808") == 0)
+			return (0);
+	}
+	if (ft_strcmp(s, "18446744073709551616") == 0)
+		return (-1);
+	return (2);	
+}
+
 int	ft_atoi(const char *str)
 {
 	char	*p;
@@ -86,26 +108,4 @@ int	ft_atoi(const char *str)
 	while (i < ft_strlen_num(p))
 		x = (x * 10) + (p[i++] - '0');
 	return (operation_two(x, sign));
-}
-
-int	handle_exc(char *s, int sign, int len)
-{
-	if (len > 20)
-	{
-		if (sign == 1)
-			return (-1);
-		else if (sign == -1)
-			return (1);
-
-	}
-	if (sign == -1)
-	{
-		if (ft_strcmp(s, "9223372036854775809") == 0)
-			return (0);
-		else if  (ft_strcmp(s, "9223372036854775808") == 0)
-			return (0);
-	}
-	if (ft_strcmp(s, "18446744073709551616") == 0)
-		return (-1);
-	return (2);	
 }
