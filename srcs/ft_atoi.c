@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:30 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:52:31 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 13:06:01 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strlen_num(char *s)
 	int	len;
 
 	len = 0;
-	while(s[len] >= '0' && s[len] <= '9')
+	while (s[len] >= '0' && s[len] <= '9')
 		len++;
 	return (len);
 }
@@ -74,15 +74,15 @@ int	operation_two(unsigned long long x, int sign)
 
 int	ft_atoi(const char *str)
 {
-	char			*p;
-	int			flag;
-	int			sign;
-	int			i;
-	unsigned long long	x;
+	char	*p;
+	int		flag;
+	int		sign;
+	int		i;
+	size_t	x;
 
 	flag = 0;
 	sign = 1;
-	p = operation_one((char*)str, &flag, &sign);
+	p = operation_one((char *)str, &flag, &sign);
 	if (flag == 1 && !(*p >= '0' && *p <= '9'))
 		return (0);
 	while (*p == '0')
@@ -99,15 +99,3 @@ int	ft_atoi(const char *str)
 		x = (x * 10) + (p[i++] - '0');
 	return (operation_two(x, sign));
 }
-
-
-
-
-
-
-
-
-
-
-
-
