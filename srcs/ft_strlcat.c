@@ -6,13 +6,13 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:55:14 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:55:15 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:39:27 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<stddef.h>
 
-int	ft_strlen(char * s)
+int	ft_strlen(char *s)
 {
 	int	len;
 
@@ -22,15 +22,15 @@ int	ft_strlen(char * s)
 	return (len);
 }
 
-size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
 	char	*p1;
 	char	*p2;
 	size_t	len;
 	size_t	return_val;
 
-	p1 = (char*)dst;
-	p2 = (char*)src;
+	p1 = (char *)dst;
+	p2 = (char *)src;
 	if (p2 == NULL || p1 == NULL)
 		return (99);
 	len = ft_strlen(p1);
@@ -40,7 +40,7 @@ size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize
 	while (*p2 && len < dstsize - 1)
 	{
 		p1[len] = *p2;
-		p2++;	
+		p2++;
 		len++;
 	}
 	p1[len] = '\0';
