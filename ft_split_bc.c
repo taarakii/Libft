@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:40:45 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 16:41:13 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/14 16:21:47 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,23 @@ int	count_split(const char *s, int *len_max, char c)
 	int		i_split;
 	int		len;
 
-//
-//	if (s == NULL)
-//		return (0);
-//
 	p = (char *)s;
+//
+	if (p == NULL)
+		return (0);
+//
 	*len_max = 0;
 	len = 0;
 	i_split = 0;
 	while (*p)
 	{	
-		printf("\n*p:%c", *p);
 		if (*p == c)
 		{
 			i_split++;
-			printf("\ni_split:%d", i_split);
 			len = 0;
 		}
 		else
-		{
 			len++;
-		}
 		if (*len_max < len)
 			*len_max = len;
 		p++;
@@ -54,8 +50,6 @@ char	**secure_mem(int array_size, int len_max)
 	int		i;
 
 	mem = (char **)malloc(array_size * sizeof(char *) + 1);
-	if (mem == NULL)
-		return (NULL);
 	i = 0;
 	while (i < array_size)
 	{
@@ -69,26 +63,20 @@ char	**ft_split(char const *s, char c)
 {
 	char	**new;
 	int		array_size;
-	//int		array_size_temp;
 	int		len_max;
-	//int		i;
+	int		i;
 	int		j;
 	int		k;
 
-	if (s == NULL)
-		return (NULL);
 	array_size = count_split(s, &len_max, c) + 1;
-	printf("\narray_size:%d\n", array_size);
 	new = secure_mem(array_size, len_max);
-	//i = 0;
+	i = 0;
 	k = 0;
-	//while (i < array_size)
-	while (array_size)
+	while (i < array_size)
 	{
 		if (*s == c || *s == '\0')
 		{
-			//i++;
-			array_size--;
+			i++;
 			s++;
 			continue ;
 		}
@@ -98,13 +86,10 @@ char	**ft_split(char const *s, char c)
 		if (*s == c)
 			s++;
 		new[k++][j] = '\0';
-		//i++;
-		array_size--;
+		i++;
 	}
-	new[k] = NULL;
-//	while (k <= array_size)
-//		new[k++] = NULL;
-//	while (k <= array_size_temp)
-//		new[k++] = NULL;
+	printf("\narray_size:%d", array_size);
+	while (k <= array_size)
+		new[k++] = NULL;
 	return (new);
 }
