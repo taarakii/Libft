@@ -6,18 +6,17 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:16:58 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 16:23:35 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 16:21:07 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
-/*
+//#include	"libft.h"
+
 typedef struct	s_list
 {
  void		*content;
  struct s_list	*next;
 }		t_list;
-*/
 
 t_list	*ft_lstnew(void *content)
 {
