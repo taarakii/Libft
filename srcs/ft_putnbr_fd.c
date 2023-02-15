@@ -6,10 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:31:49 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/13 16:17:04 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:58:31 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+
+#include	"libft.h"
 
 //a function that displays a string
 void	print_string_fd(const char *s, int fd)

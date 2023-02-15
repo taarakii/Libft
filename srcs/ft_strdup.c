@@ -6,11 +6,10 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:23:36 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/13 17:39:22 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:59:41 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
 #include	"libft.h"
 
 char	*ft_strdup(const char *s)

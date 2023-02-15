@@ -6,12 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:53:07 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:53:07 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:01:50 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stddef.h>
-#include	<stdio.h>
+#include	"libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

@@ -6,21 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:55:14 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:39:27 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:00:47 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stddef.h>
-
-int	ft_strlen(char *s)
-{
-	int	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
+#include	"libft.h"
 
 size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {

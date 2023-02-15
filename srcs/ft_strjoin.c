@@ -6,11 +6,10 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:53:52 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:40:09 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:00:27 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
 #include	"libft.h"
 
 //@param:

@@ -6,11 +6,10 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:16:27 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/12 17:27:36 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:01:36 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
 #include	"libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))

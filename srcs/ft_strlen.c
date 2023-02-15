@@ -6,11 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:10 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:52:12 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:01:27 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include	"libft.h"
 
 size_t	ft_strlen(const char *s)
 {

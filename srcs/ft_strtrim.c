@@ -6,11 +6,10 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:56:08 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:33:14 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:04:36 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
 #include	"libft.h"
 
 int	trimmed(char const *h, char c)
@@ -72,9 +71,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		len_new;
 	int		i;
 
-	i_begin = 0;
-	i_end = 0;
-	len_new = 0;
 	i_begin = count_begin(s1, set);
 	i_end = count_end(s1, set);
 	len_new = ft_strlen(s1) - i_begin - i_end;

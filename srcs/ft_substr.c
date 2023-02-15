@@ -6,11 +6,10 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:18 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:30:21 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:04:45 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
 #include	"libft.h"
 
 // start: The start index of the subsring in the string 's'

@@ -6,9 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:53:35 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:53:36 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:56:30 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include	"libft.h"
 
 int	ft_isprint(int c)
 {

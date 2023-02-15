@@ -6,11 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:54:25 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:25:04 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:56:57 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include	"libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

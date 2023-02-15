@@ -6,9 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:40:14 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/13 17:40:16 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:05:14 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include	"libft.h"
 
 int	ft_toupper(int c)
 {

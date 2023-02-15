@@ -6,11 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:34:49 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/13 17:20:10 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:54:31 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
+#include	"libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

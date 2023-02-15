@@ -6,11 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:58 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/07 20:52:59 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:59:32 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stddef.h>
+#include	"libft.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

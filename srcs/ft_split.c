@@ -6,12 +6,10 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:40:45 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 11:29:36 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:59:04 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdio.h>
-#include	<stdlib.h>
 #include	"libft.h"
 
 int	count_split(const char *s, int *len_max, char c, int *k)
