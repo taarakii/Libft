@@ -6,10 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:16:58 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 16:23:35 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 16:40:19 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include	<stdio.h>
 #include	"libft.h"
 /*
 typedef struct	s_list
@@ -23,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	new = (t_list)malloc(sizeof(t_list) + 1);
+	new = (t_list *)malloc(sizeof(t_list) + 1);
 	if (content == NULL)
 	{
 		printf("is null");

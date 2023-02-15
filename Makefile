@@ -15,8 +15,8 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-bonus: $(OBJS_BONUS)
-	ar r	$(NAME) $(OBJS_BONUS)
+bonus: $(OBJS) $(OBJS_BONUS)
+	ar r	$(NAME) $(OBJS) $(OBJS_BONUS)
 
 .c.o:
 	$(CC) $(CFLAGS) -c  $<  -o $@  -I./includes
