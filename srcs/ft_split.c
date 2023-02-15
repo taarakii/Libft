@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:40:45 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 16:51:46 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:29:36 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,22 @@
 #include	<stdlib.h>
 #include	"libft.h"
 
-int	count_split(const char *s, int *len_max, char c)
+int	count_split(const char *s, int *len_max, char c, int *k)
 {
 	char	*p;
 	int		i_split;
 	int		len;
 
-//
-//	if (s == NULL)
-//		return (0);
-//
 	p = (char *)s;
 	*len_max = 0;
+	*k = 0;
 	len = 0;
 	i_split = 0;
 	while (*p)
 	{	
-		printf("\n*p:%c", *p);
 		if (*p == c)
 		{
 			i_split++;
-			printf("\ni_split:%d", i_split);
 			len = 0;
 		}
 		else
@@ -73,11 +68,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		k;
 
-	//if (s == NULL)
-	//	return (NULL);
-	array_size = count_split(s, &len_max, c) + 1;
+	array_size = count_split(s, &len_max, c, &k) + 1;
 	new = secure_mem(array_size, len_max);
-	k = 0;
 	while (array_size)
 	{
 		if (*s == c || *s == '\0')
@@ -87,10 +79,9 @@ char	**ft_split(char const *s, char c)
 			continue ;
 		}
 		j = 0;
-		while (*s != c && *s)// && j < len_max + 1)
+		while (*s != c && *s)
 			new[k][j++] = *s++;
-	//	if (*s == c)
-			s++;
+		s++;
 		new[k++][j] = '\0';
 		array_size--;
 	}
