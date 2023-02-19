@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 12:13:51 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/19 15:46:57 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/19 16:03:43 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_del(void *p)
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	**p;
-	t_list	*temp2;
+	t_list	*temp;
 
 	p = lst;
 	// The first two conditions are necessary.
@@ -51,22 +51,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		printf("i:%d\n", i++);
 
-		//store the memory of the current address of a pointer.
-		temp2 = *lst;
-
-		//set the next pointer's address to the current address of a pointer.
-		*lst = (*lst)->next;
-		// I probably need to use 'del' to delete the content AND free the lst itself.
-		(*del)(temp2->content);
-		free(temp2);
-
-		//do I need set the pointer to a null, besides freeing the pointer?
-		//temp2 = NULL;
+		temp = *lst;//store the memory of the current address of a pointer.
+		*lst = (*lst)->next;//set the next pointer's address to the current address of a pointer.
+		(*del)(temp->content);// I probably need to use 'del' to delete the content AND free the lst itself.
+		free(temp);
 	}
 	printf("after while i = %d\n", i);
 
-	// while loop runs until the last element. (when the next element is null.)
-	// That means the last element must be freed manually after the loop.
+	// freeing the last element after the while loop.
 	if (i >= 1)
 	{
 		(*del)((*lst)->content);
@@ -76,13 +68,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	// I definitely need to free a pointer to avoid unexpected behaviors.
 	// freeing the double pointer at the end of the program.
-	//(*del)(lst);
-	//free(lst);
+	// The question is, do I need to free the double pointer?
+
+	//free(lst);//comment this line out, so that the tester runs without crashing.
+	//free(*p);
 	//lst = NULL;
+	*p = NULL;
+	p = NULL;
 	printf("$\n");
-	
-	//setting the pointer to a NULL just in case (maybe it holds no sense.)
-	//lst = NULL;
 }
 
 /*
