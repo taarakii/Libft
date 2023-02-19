@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 12:13:51 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/19 15:45:19 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/19 15:46:57 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	// That means the last element must be freed manually after the loop.
 	if (i >= 1)
 	{
-		(*del)(*lst);
+		(*del)((*lst)->content);
 		free(*lst);
 	}
 	printf("#\n");
