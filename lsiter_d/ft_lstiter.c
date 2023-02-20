@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lsiter.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:31:14 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/19 16:36:05 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/19 16:45:22 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include	<stdio.h>
-//#include	<stdlib.h>
+#include	<stdio.h>
+#include	<stdlib.h>
+#include	<string.h>
 #include	"libft.h"
+
+/*
+typedef struct	s_list
+{
+ void		*content;
+ struct s_list	*next;
+}		t_list;
+*/
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
@@ -31,4 +40,11 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		//(*f)(temp);
 	}
 	(*f)(lst);
+}
+
+int	main(void)
+{
+	t_list  *lst = ft_lstnew(strdup("Hello"));
+	ft_lstadd_back(&lst, ft_lstnew(strdup(" World")));
+	return (0);
 }
