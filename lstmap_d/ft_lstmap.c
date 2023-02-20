@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:26:17 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/20 16:48:50 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:59:00 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,20 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	store = new;
 
-	//while (lst != NULL)
-	while (lst->next != NULL)
+	//while (lst->next != NULL)
+	while (lst != NULL)
 	{
-		new->next = (t_list *)malloc(sizeof(t_list) + 1);
 		new->content = (*f)(lst->content);
+		if (lst->next == NULL)
+		{
+			new->next = NULL;
+			break;
+		}
+		new->next = (t_list *)malloc(sizeof(t_list) + 1);
 		new = new->next;
 		lst = lst->next;
 	}
-	new->next = NULL;
+	//new->next = NULL;
+	//new = NULL;
 	return (store);
 }
