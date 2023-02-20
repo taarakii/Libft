@@ -6,17 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:10:10 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/16 17:30:43 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:23:10 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
-
-typedef struct	s_list
-{
- void		*content;
- struct s_list	*next;
-}		t_list;
 
 int	ft_lstsize(t_list *lst)
 {
@@ -28,7 +22,5 @@ int	ft_lstsize(t_list *lst)
 		lst = lst->next;
 		i++;
 	}
-	if (i + (unsigned int)1 < i)
-		return (-1);
 	return (i);
 }

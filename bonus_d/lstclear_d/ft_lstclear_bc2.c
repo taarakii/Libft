@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 12:13:51 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/20 12:16:55 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:15:15 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_del(void *p)
 //@param
 // lst: The address of a pointer to a node.
 // del: The address of the function used to delete the 'content' of the node.
+
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	**store;
@@ -30,13 +31,20 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		return ;
 	if (*lst == NULL)
 		return ;
+
+	// while loop runs until the last element. (when the next element is null.)
+	//while ((*lst)->next != NULL)
 	while (*lst != NULL)
 	{
-		temp = *lst;
-		*lst = (*lst)->next;
-		(*del)(temp->content);
+		temp = *lst;//store the memory of the current address of a pointer.
+		*lst = (*lst)->next;//set the next pointer's address to the current address of a pointer.
+		(*del)(temp->content);// I probably need to use 'del' to delete the content AND free the lst itself.
 		free(temp);
 	}
-	*store = NULL;
-	store = NULL;
+	// freeing the last element after the while loop. (if the loop is not run, free the first element)
+	//(*del)((*lst)->content);
+	//free(*lst);
+
+	*store = NULL;//setting the pointer to the first element null
+	store = NULL;//setting the double pointer that holds the address of the first pointer null (unnecessary)
 }
