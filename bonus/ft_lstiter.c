@@ -1,47 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lsiter.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:31:14 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/19 16:40:00 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/20 11:01:55 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<stdio.h>
 #include	<stdlib.h>
-//#include	"libft.h"
+#include	<string.h>
+#include	"libft.h"
 
+/*
 typedef struct	s_list
 {
  void		*content;
  struct s_list	*next;
 }		t_list;
+*/
+
+//@description
+// Iterates the list 'lst' and applies the function 'f'
+// on the content of each node.
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	//t_list	*temp;
+	size_t	i;
 
 	if (lst == NULL)
 		return ;
 	if (f == NULL)
+	{
+		printf("\nf is null.");
 		return ;
-
+	}
+/*
+	if (*f == NULL)
+	{
+		printf("\n*f is null.");
+		return ;
+	}
+*/
+	i = 0;
+	//while ((lst + i) != NULL)
 	while (lst->next != NULL)
 	{
-		(*f)(lst);
-		//temp = lst;
+		printf("i:%zu ", i);
+		printf("%s ", (char *)(lst)->content);
+		(*f)((lst)->content);
+		printf("%s ", (char *)(lst)->content);
+		//(*f)((lst + i)->content);
 		lst = lst->next;
-		//(*f)(temp);
+		if (lst->next == NULL)
+			printf("\n next is null.");
+		i++;
 	}
-	(*f)(lst);
-}
-
-int	main(void)
-{
-	t_list  *lst = ft_lstnew(strdup("Hello"));
-	ft_lstadd_back(&lst, ft_lstnew(strdup(" World")));
-	return (0);
+	//(*f)(lst->content);
 }
