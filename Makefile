@@ -10,10 +10,10 @@ OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 NAME = libft.a
 
+all: $(NAME)
+
 $(NAME): $(OBJS)
 	ar r    $(NAME) $(OBJS)
-
-all: $(NAME)
 
 bonus: $(OBJS) $(OBJS_BONUS)
 	ar r	$(NAME) $(OBJS) $(OBJS_BONUS)
