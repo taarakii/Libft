@@ -6,13 +6,13 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:22:31 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 11:56:39 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/25 15:44:41 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-int	int_len(int n)
+static int	int_len(int n)
 {
 	int	i;
 

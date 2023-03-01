@@ -6,13 +6,13 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:56:08 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 12:04:36 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/25 15:59:33 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-int	trimmed(char const *h, char c)
+static int	trimmed(char const *h, char c)
 {
 	char	*p;
 
@@ -26,7 +26,7 @@ int	trimmed(char const *h, char c)
 	return (0);
 }
 
-int	count_begin(char const *h, char const *n)
+static int	count_begin(char const *h, char const *n)
 {
 	char	*p;
 	int		i_begin;
@@ -44,7 +44,7 @@ int	count_begin(char const *h, char const *n)
 	return (i_begin);
 }
 
-int	count_end(char const *h, char const *n)
+static int	count_end(char const *h, char const *n)
 {
 	char	*p;
 	int		i_end;

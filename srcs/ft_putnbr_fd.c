@@ -6,21 +6,21 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:31:49 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 11:58:31 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/25 15:48:15 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
 //a function that displays a string
-void	print_string_fd(const char *s, int fd)
+static void	print_string_fd(const char *s, int fd)
 {
 	while (*s)
 		write(fd, s++, 1);
 }
 
 //a function that returns the number of digits of an integer
-int	int_len(int n)
+static int	int_len(int n)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ int	int_len(int n)
 }
 
 //a function that checks if an integer is negative
-int	check_negative(int n)
+static int	check_negative(int n)
 {
 	if (n < 0)
 		return (1);
@@ -43,7 +43,7 @@ int	check_negative(int n)
 }
 
 //a function that handles exceptions
-void	check_ex(int nb, int fd)
+static void	check_ex(int nb, int fd)
 {
 	if (nb == 0)
 		write(fd, "0", 1);

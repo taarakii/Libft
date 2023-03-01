@@ -6,13 +6,13 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:40:45 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 11:59:04 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/25 15:49:23 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-int	count_split(const char *s, int *len_max, char c, int *k)
+static int	count_split(const char *s, int *len_max, char c, int *k)
 {
 	char	*p;
 	int		i_split;
@@ -41,7 +41,7 @@ int	count_split(const char *s, int *len_max, char c, int *k)
 	return (i_split);
 }
 
-char	**secure_mem(int array_size, int len_max)
+static char	**secure_mem(int array_size, int len_max)
 {
 	char	**mem;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:55:14 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 12:00:47 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/25 16:18:53 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 
 	p1 = (char *)dst;
 	p2 = (char *)src;
-	if (p2 == NULL || p1 == NULL)
-		return (99);
+	if (p1 == NULL)
+		return (ft_strlen(p2));
 	len = ft_strlen(p1);
 	if (dstsize < len)
 		return (ft_strlen(p2) + dstsize);

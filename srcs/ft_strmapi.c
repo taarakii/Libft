@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:16:27 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 12:01:36 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/25 15:57:02 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	len;
 	size_t	i;
 
-	len = 0;
 	len = ft_strlen(s);
 	p = (char *)malloc((len + 1) * sizeof(char) + 1);
 	if (p == NULL)

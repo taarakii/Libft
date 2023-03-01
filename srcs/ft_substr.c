@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:52:18 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 12:04:45 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/02/25 16:00:28 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	temp = p;
 	if (p == NULL)
 		return (NULL);
-	if ((unsigned int)ft_strlen(s) < start)
+	if (ft_strlen(s) < start)
 		return ("");
 	s += (start) * sizeof(char);
 	i = 0;
