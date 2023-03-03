@@ -6,20 +6,12 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 12:13:51 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/20 12:16:55 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/03 17:05:32 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	ft_del(void *p)
-{
-	free(p);
-}
-
-//@param
-// lst: The address of a pointer to a node.
-// del: The address of the function used to delete the 'content' of the node.
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	**store;

@@ -6,9 +6,11 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:55:24 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/14 15:36:00 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/03 17:09:31 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include	"libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
