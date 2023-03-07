@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:46:48 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/20 12:09:25 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/06 17:20:17 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
+	//size_t	i;
+	t_list *temp = *lst;
 
 	if (new == NULL)
 	{
@@ -40,8 +41,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	i = 0;
-	while ((*lst + i)->next != NULL)
-		i++;
-	(*lst + i)->next = new;
+	//i = 0;
+	//while ((*lst + i)->next != NULL)
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	//	i++;
+	}
+	//(*lst + i)->next = new;
+	temp->next = new;
 }
