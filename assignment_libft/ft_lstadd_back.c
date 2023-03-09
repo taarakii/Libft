@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:46:48 by taaraki           #+#    #+#             */
-/*   Updated: 2023/03/03 16:50:26 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/07 16:51:48 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,21 @@
 //    and set new to the last element.
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
+//	size_t	i;
+	t_list	*last;
 
-	if (new == NULL)
-	{
+	if (new == NULL || lst == NULL)
 		return ;
-	}
 	if (*lst == NULL)
 	{
 		*lst = new;
 		return ;
 	}
-	i = 0;
-	while ((*lst + i)->next != NULL)
-		i++;
-	(*lst + i)->next = new;
+	last = ft_lstlast(*lst);
+	last->next = new;
+	last->next->next = NULL;
+//	i = 0;
+//	while ((*lst + i)->next != NULL)
+//		i++;
+//	(*lst + i)->next = new;
 }

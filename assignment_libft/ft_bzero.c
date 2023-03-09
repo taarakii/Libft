@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:53:28 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 11:54:01 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/09 12:32:52 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (n == 0)
-		return ;
+//	if (n == 0)
+//		return ;
 	while (n > 0)
 	{
 		*((char *)s) = 0;

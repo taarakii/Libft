@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:02:54 by taaraki           #+#    #+#             */
-/*   Updated: 2023/03/07 16:39:04 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/09 13:28:08 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include	<stddef.h>
+# include	<stdlib.h>
+# include	<stdbool.h>
+# include	<unistd.h>
+# include	<limits.h>
 
 typedef struct s_list
 {

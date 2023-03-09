@@ -6,13 +6,13 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:51:51 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/15 11:57:23 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/09 12:34:22 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char	*p1;
 	char	*p2;
@@ -21,9 +21,9 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	p2 = (char *)src;
 	while (n > 0)
 	{
-		*p1 = *p2;
-		p1++;
-		p2++;
+		*p1++ = *p2++;
+//		p1++;
+//		p2++;
 		n--;
 	}
 	return (dst);

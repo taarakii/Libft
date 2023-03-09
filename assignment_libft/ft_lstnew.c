@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:16:58 by taaraki           #+#    #+#             */
-/*   Updated: 2023/02/20 12:19:55 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/07 16:42:16 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	new = (t_list *)malloc(sizeof(t_list) + 1);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new == NULL)
+		return (NULL);
 	new->content = content;
+	new->next = NULL;
 	return (new);
 }
