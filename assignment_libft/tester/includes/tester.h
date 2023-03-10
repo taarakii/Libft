@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   tester.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
+/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 17:23:36 by taaraki           #+#    #+#             */
-/*   Updated: 2023/03/10 13:47:20 by taaraki          ###   ########.fr       */
+/*   Created: 2022/05/02 09:47:36 by susami            #+#    #+#             */
+/*   Updated: 2022/05/30 12:25:38 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#ifndef TESTER_H
+# define TESTER_H
 
-char	*ft_strdup(const char *s)
-{
-	char	*p;
-	size_t	len;
+# include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <ctype.h>
+# include <fcntl.h>
+# include "libft.h"
+# include "libassert.h"
 
-	len = ft_strlen(s);
-	p = (char *)malloc(sizeof(char) * (len + 1));
-	if (p == NULL)
-		return (NULL);
-	ft_strlcpy(p, s, len + 1);
-	return (p);
-}
+#endif

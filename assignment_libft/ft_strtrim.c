@@ -6,12 +6,13 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:56:08 by taaraki           #+#    #+#             */
-/*   Updated: 2023/03/03 17:10:34 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/10 13:55:54 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+//return 0 or 1 to determin if the character should be trimmed
 static int	trimmed(char const *h, char c)
 {
 	char	*p;
@@ -26,6 +27,7 @@ static int	trimmed(char const *h, char c)
 	return (0);
 }
 
+//return the index to start copying the string
 static int	count_begin(char const *h, char const *n)
 {
 	char	*p;
@@ -44,6 +46,7 @@ static int	count_begin(char const *h, char const *n)
 	return (i_begin);
 }
 
+//return the index to end copying the string
 static int	count_end(char const *h, char const *n)
 {
 	char	*p;
@@ -74,7 +77,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i_begin = count_begin(s1, set);
 	i_end = count_end(s1, set);
 	len_new = ft_strlen(s1) - i_begin - i_end;
-	new = (char *)malloc(len_new * sizeof(char) + 1);
+	new = (char *)malloc(sizeof(char) * (len_new + 1));
 	if (new == NULL)
 		return (NULL);
 	i = 0;
