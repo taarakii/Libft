@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 16:34:25 by susami            #+#    #+#             */
-/*   Updated: 2022/05/02 10:08:39 by susami           ###   ########.fr       */
+/*   Updated: 2023/03/12 17:27:09 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	main(void)
 	/* 18 ~ 19 */ assert_str_array(ft_split("hello,world,42,tokyo", '{'), expected2);
 
 	char *expected3[] = {NULL};
-	/* 20 */ assert_str_array(ft_split("", ','), expected3);
+	char str[] = "\0";
+	///* 20 */ assert_str_array(ft_split("", ','), expected3);
+	/* 20 */ assert_str_array(ft_split(str, ','), expected3);
 
 	// Segmentation Fault
 	// /* 21 */ assert_str_array(ft_split(NULL, ','), expected3);
