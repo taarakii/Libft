@@ -6,7 +6,7 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:53:52 by taaraki           #+#    #+#             */
-/*   Updated: 2023/03/03 16:46:36 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/11 13:28:42 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*p;
 	char	*temp;
 
-	p = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char) + 1);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	p = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (p == NULL)
 		return (NULL);
 	temp = p;

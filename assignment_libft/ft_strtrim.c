@@ -6,18 +6,19 @@
 /*   By: taaraki <taaraki@student.42.jp>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:56:08 by taaraki           #+#    #+#             */
-/*   Updated: 2023/03/10 13:55:54 by taaraki          ###   ########.fr       */
+/*   Updated: 2023/03/12 13:43:59 by taaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include	<stdio.h>
 #include	"libft.h"
 
-//return 0 or 1 to determin if the character should be trimmed
-static int	trimmed(char const *h, char c)
+//return 0 or 1 to determine if the character should be trimmed
+static int	trimmed(char const *haystack, char c)
 {
 	char	*p;
 
-	p = (char *)h;
+	p = (char *)haystack;
 	while (*p)
 	{
 		if (*p == c)
@@ -28,16 +29,16 @@ static int	trimmed(char const *h, char c)
 }
 
 //return the index to start copying the string
-static int	count_begin(char const *h, char const *n)
+static size_t	count_begin(char const *haystack, char const *needle)
 {
 	char	*p;
-	int		i_begin;
+	size_t		i_begin;
 
-	p = (char *)h;
+	p = (char *)haystack;
 	i_begin = 0;
 	while (*p)
 	{
-		if (trimmed(n, *p))
+		if (trimmed(needle, *p))
 			i_begin++;
 		else
 			break ;
@@ -46,18 +47,23 @@ static int	count_begin(char const *h, char const *n)
 	return (i_begin);
 }
 
-//return the index to end copying the string
-static int	count_end(char const *h, char const *n)
+//return the index to end copying the string (counting from the end)
+static size_t	count_end(char const *haystack, char const *needle)
 {
 	char	*p;
-	int		i_end;
+	size_t	i_end;
+	size_t	len;
 
-	p = (char *)h;
-	p = &p[ft_strlen(p) - 1];
+	p = (char *)haystack;
+	//what happens if the length of p is 0
+	len = 1;
+	if (ft_strlen(p) > 1)
+		len = ft_strlen(p);
+	p = &p[len - 1];
 	i_end = 0;
 	while (*p)
 	{
-		if (trimmed(n, *p))
+		if (trimmed(needle, *p))
 			i_end++;
 		else
 			break ;
@@ -69,19 +75,26 @@ static int	count_end(char const *h, char const *n)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new;
-	int		i_begin;
-	int		i_end;
-	int		len_new;
-	int		i;
+	size_t		i_begin;
+	size_t		i_end;
+	size_t		len_new;
+	size_t		i;
 
+	if (s1 == NULL)
+		return (NULL);
+	else if (set == NULL)
+		return ((char *)s1);
 	i_begin = count_begin(s1, set);
 	i_end = count_end(s1, set);
-	len_new = ft_strlen(s1) - i_begin - i_end;
+	len_new = 0;
+	if (ft_strlen(s1) > i_begin + i_end)
+		len_new = ft_strlen(s1) - i_begin - i_end;
 	new = (char *)malloc(sizeof(char) * (len_new + 1));
 	if (new == NULL)
 		return (NULL);
 	i = 0;
 	while (i < len_new)
 		new[i++] = s1[i_begin++];
+	new[len_new] = '\0';
 	return (new);
 }
